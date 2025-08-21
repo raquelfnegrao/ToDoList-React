@@ -42,7 +42,7 @@
 
 - **Verificação se integrou corretamente ao server** 
 
-![Resultado exibido](captura%20de%20tela/Captura%20de%20tela3.png)
+![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela3.png)
 
 ---
 
