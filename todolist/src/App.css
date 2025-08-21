@@ -1,17 +1,29 @@
+.light {
+  --cor-fundo-body: aliceblue;
+  --cor-texto-principal: #333;
+  --cor-fundo-container: rgb(188, 224, 255);
+  --cor-borda-geral: #555;
+  --cor-fundo-tarefa: aliceblue;
+  --cor-sombra-tarefa: rgba(0, 0, 0, 0.1);
+  --cor-botao-padrao: #333974;
+  --cor-texto-botao: aliceblue;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: aliceblue;
+  background-color: var(--cor-fundo-body);
+  color: var(--cor-texto-principal);
+  transition: background-color 0.3s, color 0.3s;
   padding: 30px;
-  color: #333;
-
 }
 
 .ToDo {
   max-width: 600px;
   margin: 0 auto;
-  background-color: rgb(188, 224, 255);
+  background-color: var(--cor-fundo-container);
   padding: 20px 30px;
   border-radius: 15px;
+  transition: background-color 0.3s;
 }
 
 h1{
@@ -31,8 +43,8 @@ input {
 }
 
 button {
-  background-color: #333974;
-  color: aliceblue;
+  background-color: var(--cor-botao-padrao);
+  color: var(--cor-texto-botao);
   padding: 5px 10px;
   margin-right: 10px;
   border: none;
@@ -57,12 +69,12 @@ button:hover {
 .ToDoList{
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid var(--cor-borda-geral);
 }
 
-.to{
-  background-color: aliceblue;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.todo{
+  background-color: var(--cor-fundo-tarefa);
+  box-shadow: 0 0 10px var(--cor-sombra-tarefa);
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -71,18 +83,36 @@ button:hover {
   align-items: center;
 }
 
-
 .todo-form {
   padding-bottom: 1.5rem;
 }
 
-input, select {
+.todo-form form {
+  display: flex;
+  align-items: center; 
+  gap: 10px;          
+}
+
+.todo-form input, 
+.todo-form select {
   padding: 5px;
-  margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 3px;
-  width: 100%;
 }
+
+.todo-form input[type="text"] {
+  flex: 1; 
+}
+
+.todo-form select {
+  flex-basis: 150px;
+}
+
+.todo-form button {
+  flex-shrink: 0; 
+  margin-right: 0; 
+}
+
 
 .filtro, .busca{
   border-bottom: 1px solid #555;
@@ -125,4 +155,35 @@ input, select {
   display: flex;
   align-items: baseline;
   gap: 10px;
+}
+
+.dark {
+  --cor-fundo-body: #1a1a2e;
+  --cor-texto-principal: #e9e9e9;
+  --cor-fundo-container: #16213e;
+  --cor-borda-geral: #4a4a70;
+  --cor-fundo-tarefa: #0f3460;
+  --cor-sombra-tarefa: rgba(0, 0, 0, 0.4);
+  --cor-botao-padrao: #e94560;
+  --cor-texto-botao: #ffffff;
+}
+
+.dark input,
+.dark select {
+  background-color: #16213e;
+  color: #e9e9e9;
+  border: 1px solid var(--cor-borda-geral);
+}
+
+.dark input::placeholder {
+  color: #a0a0c0;
+}
+
+.filtro, .busca {
+  border-bottom: 1px solid var(--cor-borda-geral);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.dark p, h1, h2{
+  color: #8a88ff;
 }

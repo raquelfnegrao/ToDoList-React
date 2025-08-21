@@ -1,60 +1,87 @@
-import { useState } from 'react'
-import './App.css'
-import Todo from './component/todo'
-import TodoForm from './component/TodoForm'
-import Busca from './component/busca'
-import Filtro from './component/filtro'
+import { useState, useReducer } from 'react';
+import './App.css';
+import Todo from './component/todo';
+import TodoForm from './component/TodoForm';
+import Busca from './component/busca';
+import Filtro from './component/filtro';
 
-function App() {
-
-  const [busca, setBusca] = useState('')
-  const [filtro, setFiltro] = useState('Todas')
-  const [sort, setSort] = useState('A-Z')
-
-  const [ToDo, setToDo] = useState([
-    {
-      id: 1,
-      texto: 'Crie uma tarefa',
-      categoria: 'Aqui embaixo',
-      isCompleted: false
-    },   
-  ])
-  const AddTodo = (texto, categoria) => {
-    const newTodo = [...ToDo, {
-      id: Math.floor(Math.random() * 100000),
-      texto,
-      categoria,
-      isCompleted: false,
-    }]
-    setToDo(newTodo)
+function tasksReducer(tasks, action) {
+  switch (action.type) {
+    case 'ADICIONAR_TAREFA': {
+      return [
+        ...tasks,
+        {
+          id: Math.floor(Math.random() * 100000),
+          texto: action.payload.texto,
+          categoria: action.payload.categoria,
+          isCompleted: false,
+        },
+      ];
+    }
+    case 'REMOVER_TAREFA': {
+      return tasks.filter(todo => todo.id !== action.payload.id);
+    }
+    case 'CONCLUIR_TAREFA': {
+      return tasks.map(todo => {
+        if (todo.id === action.payload.id) {
+          return { ...todo, isCompleted: !todo.isCompleted };
+        } else {
+          return todo;
+        }
+      });
+    }
+    default:
+      return tasks;
   }
-
-  const removeTodo = (id) => {
-    const newTodo = [...ToDo ]
-    const filtroTodo = newTodo.filter(todo => todo.id !== id ? todo : null)
-    setToDo(filtroTodo)
-  }
-
-  const completeTodo = (id) => {
-    const newTodo = [...ToDo ]
-    newTodo.map((todo) => todo.id === id ? todo.isCompleted = !todo.isCompleted : todo)
-    setToDo(newTodo)
-  }
-
-  return (
-    <div className='ToDo'>
-      <h1>To Do List</h1>
-      <Busca busca={busca} setBusca={setBusca}/>
-      <Filtro filtro={filtro} setFiltro={setFiltro} setSort={setSort}/>    
-      <div className="ToDoList">
-        <h2>Tarefas</h2>
-        {ToDo.filter((todo) => filtro === 'Todas' ? true : filtro === 'Completas' ? todo.isCompleted : !todo.isCompleted).filter((todo) => todo.texto.toLowerCase().includes(busca.toLocaleLowerCase())).sort((a, b) => sort === 'A-Z' ? a.texto.localeCompare(b.texto) : b.texto.localeCompare(a.texto)).map((todo) => (
-            <Todo key={todo.id} todo={todo} removeTodo={removeTodo} completeTodo={completeTodo}/>
-        ))}
-      </div>
-      <TodoForm AddTodo={AddTodo}/>
-    </div>
-  )
 }
 
-export default App
+const estadoInicialDasTarefas = [
+  {
+    id: 1,
+    texto: 'Crie uma tarefa',
+    categoria: 'Aqui embaixo',
+    isCompleted: false
+  },
+];
+
+function App() {
+  const [busca, setBusca] = useState('');
+  const [filtro, setFiltro] = useState('Todas');
+  const [sort, setSort] = useState('A-Z');
+  const [tasks, dispatch] = useReducer(tasksReducer, estadoInicialDasTarefas);
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  return (
+    <div className={`ToDo ${theme}`}> 
+      <h1>To Do List</h1>
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <button onClick={toggleTheme}>
+          Mudar para Tema {theme === 'light' ? 'Escuro' : 'Claro'}
+        </button>
+      </div>
+      <Busca busca={busca} setBusca={setBusca} />
+      <Filtro filtro={filtro} setFiltro={setFiltro} setSort={setSort} />
+      <div className="ToDoList">
+        <h2>Tarefas</h2>
+        {tasks
+          .filter((todo) => filtro === 'Todas' ? true : filtro === 'Completas' ? todo.isCompleted : !todo.isCompleted)
+          .filter((todo) => todo.texto.toLowerCase().includes(busca.toLocaleLowerCase()))
+          .sort((a, b) => sort === 'A-Z' ? a.texto.localeCompare(b.texto) : b.texto.localeCompare(a.texto))
+          .map((todo) => (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              dispatch={dispatch}
+            />
+          ))}
+      </div>
+      <TodoForm dispatch={dispatch} />
+    </div>
+  );
+}
+
+export default App;
