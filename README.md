@@ -26,7 +26,12 @@
 
 ---
 
-##  📁  Capturas de tela:
+##  📁  GIF e Capturas de tela:
+
+![Demonstração](./assets/preview1.gif)
+![Demonstração](./assets/preview2.gif)
+![Demonstração](./assets/preview3.gif)
+![Demonstração](./assets/preview4.gif)
 
 - **Tela inicial zerada, pode começar a digitar as informações** 
 
