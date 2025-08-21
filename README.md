@@ -32,6 +32,7 @@
 ![Demonstração](todolist/assets/preview2.gif)
 ![Demonstração](todolist/assets/preview3.gif)
 ![Demonstração](todolist/assets/preview4.gif)
+![Demonstração](todolist/assets/preview5.gif)
 
 - **Tela inicial zerada, pode começar a digitar as informações** 
 
