@@ -28,7 +28,7 @@
 
 ##  📁  GIF e Capturas de tela:
 
-![Demonstração](./todolist/assets/assets/preview1.gif)
+![Demonstração](todolist/assets/assets/preview1.gif)
 ![Demonstração](./assets/preview2.gif)
 ![Demonstração](./assets/preview3.gif)
 ![Demonstração](./assets/preview4.gif)
