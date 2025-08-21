@@ -29,9 +29,9 @@
 ##  📁  GIF e Capturas de tela:
 
 ![Demonstração](todolist/assets/preview1.gif)
-![Demonstração](./assets/preview2.gif)
-![Demonstração](./assets/preview3.gif)
-![Demonstração](./assets/preview4.gif)
+![Demonstração](todolist/assets/preview2.gif)
+![Demonstração](todolist/assets/preview3.gif)
+![Demonstração](todolist/assets/preview4.gif)
 
 - **Tela inicial zerada, pode começar a digitar as informações** 
 
