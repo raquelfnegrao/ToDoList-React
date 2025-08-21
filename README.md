@@ -34,43 +34,43 @@
 
 ---
 
-- **Exemplo de dados de usuário cadastrado** 
+- **Exemplo de tarefas adicionadas** 
 
 ![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela2.png)
 
 ---
 
-- **Verificação se integrou corretamente ao server** 
+- **Exemplo de pesquisa** 
 
 ![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela3.png)
 
 ---
 
-- **Usuário deletado** 
+- **Exemplo de pesquisa** 
 
 ![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela4.png)
 
 ---
 
-- **Criando um usuário no VS Code** 
+- **Exemplo utilizando filtro** 
 
 ![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela5.png)
 
 ---
 
-- **Demonstrando no front-end a criação do usuário** 
+- **Exemplo utilizando filtro** 
 
 ![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela6.png)
 
 ---
 
-- **Demonstrando no front-end a criação do usuário** 
+- **Exemplo ordenando Z-A (automaticamente fica A-Z mas pode ser alterado)** 
 
 ![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela7.png)
 
 ---
 
-- **Demonstrando no front-end a criação do usuário** 
+- **Demonstrando remoção de tarefas** 
 
 ![Resultado exibido](todolist/captura%20de%20tela/Captura%20de%20tela8.png)
 
