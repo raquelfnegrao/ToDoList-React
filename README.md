@@ -1,4 +1,4 @@
-#​ ​👩‍💻 To Do List com React - Raquel Negrão
+# To Do List com React - Raquel Negrão
 
 > Seu planejador de tarefas leve e funcional — feito em React!
 
